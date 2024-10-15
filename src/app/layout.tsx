@@ -41,7 +41,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}>
+      <body className={`${garet.variable} ${questrial.variable} ${questrial.className} bg-black font-sans tracking-tighter text-white antialiased`}>
         <TRPCReactProvider>
           <Header />
 
