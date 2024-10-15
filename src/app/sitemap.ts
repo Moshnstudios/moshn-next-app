@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const data = await getProjects(999999);
 
   const projects: MetadataRoute.Sitemap = data.map((project) => ({
-    url: `https://${process.env.VERCEL_URL}/projects/${project.slug}`,
+    url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/projects/${project.slug}`,
     lastModified: new Date(project.modified),
   }));
 
@@ -14,19 +14,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    */
   return [
     {
-      url: `https://${process.env.VERCEL_URL}`,
+      url: `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
       lastModified: "2024-10-15T01:22:07.000Z",
     },
     {
-      url: `https://${process.env.VERCEL_URL}/projects`,
+      url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/projects`,
       lastModified: "2024-10-15T01:22:07.000Z",
     },
     {
-      url: `https://${process.env.VERCEL_URL}/contact`,
+      url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/contact`,
       lastModified: "2024-10-15T01:22:07.000Z",
     },
     {
-      url: `https://${process.env.VERCEL_URL}/career`,
+      url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/career`,
       lastModified: "2024-10-15T01:22:07.000Z",
     },
     ...projects,

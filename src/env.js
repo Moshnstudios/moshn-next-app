@@ -11,7 +11,7 @@ export const env = createEnv({
         ? z.string()
         : z.string().optional(),
     NEXTAUTH_URL: z.preprocess(
-      (str) => process.env.VERCEL_URL ?? str,
+      (str) => process.env.NEXT_PUBLIC_VERCEL_URL ?? str,
       process.env.VERCEL ? z.string() : z.string().url(),
     ),
   },
