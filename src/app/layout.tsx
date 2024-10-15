@@ -3,7 +3,6 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import fonts from "next/font/local";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Questrial } from "next/font/google";
 import { Toaster } from "sonner";
 import SmoothScroll from "./_components/smooth-scroll";
 import Header from "./_components/header";
@@ -19,11 +18,13 @@ const garet = fonts({
   variable: "--garet-font",
 });
 
-const questrial = Questrial({
-  weight: "400",
-  style: "normal",
+const questrial = fonts({
+  src: [
+    {
+      path: "../../public/fonts/questrial/Questrial-Regular.woff2",
+    },
+  ],
   variable: "--questrial-font",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -40,8 +41,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${garet.variable} ${questrial.variable} ${questrial.className} bg-black font-sans tracking-tighter text-white antialiased`}>
+    <html lang="en" className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}>
+      <body>
         <TRPCReactProvider>
           <Header />
 
