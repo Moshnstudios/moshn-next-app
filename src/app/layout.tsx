@@ -40,22 +40,19 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-    lang="en"
-    className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}
-    >
-        <body>
-          <TRPCReactProvider>
-            <Header />
+    <html lang="en">
+      <body className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}>
+        <TRPCReactProvider>
+          <Header />
 
-            {children}
+          {children}
 
-            <Footer />
-          </TRPCReactProvider>
-        </body>
+          <Footer />
+        </TRPCReactProvider>
+      </body>
 
-        <Toaster />
-        <SmoothScroll />
-      </html>
+      <Toaster />
+      <SmoothScroll />
+    </html>
   );
 }
