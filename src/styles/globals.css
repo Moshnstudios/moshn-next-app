@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  /* overflow-y: scroll; */
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-lg backdrop-filter;
+}
+
+body {
+  user-select: none;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+  background-color: black;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.moshn-container {
+  @apply w-full px-[5.13vw] md:px-[calc(1rem+2vw)];
+}
+
+.heading-large {
+  @apply text-[6.26vw] tracking-[-.02em] md:text-[4.95vw];
+}
+
+.text-small {
+  @apply text-[3.59vw] font-medium leading-[1.5em] tracking-[0] md:text-[clamp(10px,.95vw,100px)];
+}
+
+.text-small-uppercase {
+  @apply text-[3.59vw] font-medium uppercase leading-[1.5em] tracking-[0] md:text-[clamp(12px,.66vw,90px)];
+}
+
+.text-large {
+  @apply text-[4.1vw] leading-[1.4em] tracking-[-.02em] md:text-[clamp(14px,1.25vw,100px)];
+}
+
+.text-xxl {
+  @apply text-[7.26vw] leading-[1em] tracking-[-.02em] md:text-[3.95vw];
+}
+
+.locked {
+  @apply !overflow-hidden md:pr-[8px];
+}
+
+#overlay {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.425);
+  transition: opacity 1s ease-in-out;
+}
+
+.active-card {
+  box-shadow: 0px 4px 148px 44px rgba(0, 0, 0, 0.81);
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #cfcfcf;
+  border-radius: 10px;
+}
+
+.text-3d {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  text-shadow:
+    1px 1px 0 #aaa,
+    /* Shadow layers for 3D effect */ 2px 2px 0 #999,
+    3px 3px 0 #888,
+    4px 4px 0 #777,
+    5px 5px 0 #666,
+    6px 6px 0 #555;
+}
