@@ -14,14 +14,7 @@ export const generateMetadata = async ({
 
   return {
     title: project.title,
-    description: project.projectFields.projectOverview,
-    openGraph: {
-      images: [
-        {
-          url: project.projectFields.projectThumbnail?.node.mediaItemUrl ?? "",
-        },
-      ],
-    },
+    description: project.projectFields?.projectSeoDescription,
   };
 };
 
@@ -35,8 +28,8 @@ export default async function ProjectPage({
   return (
     <div className="h-full w-full bg-black">
       <div className="z-10 w-full bg-black">
-        <div className="relative h-[calc(100vh-200px)] w-full">
-          <div className="prose prose-invert prose-headings:mb-4 prose-headings:font-title prose-headings:text-white">
+        <div className="relative flex h-[calc(100vh-200px)] w-full items-center justify-center">
+          <div className="prose prose-invert z-10 prose-headings:mb-4 prose-headings:font-title">
             {parse(project.projectFields.projectTitle ?? "")}
           </div>
 

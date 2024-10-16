@@ -9,6 +9,7 @@ export type Project = {
     projectOverview: string | null;
     projectDetails: string | null;
     projectConclusion: string | null;
+    projectSeoDescription: string | null;
     imageGrid: string[] | null;
     projectThumbnail: {
       node: {
@@ -44,6 +45,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
       projectOverview
       projectDetails
       projectConclusion
+      projectSeoDescription
       imageGrid
       projectThumbnail {
         node {
@@ -82,6 +84,8 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
     throw new Error("Something went wrong, please try again later.");
 
   const data = (await response.json()) as { data: { project: Project } };
+
+  console.log(data);
 
   const imageGrid = extractImageUrls(
     (data.data.project.projectFields?.imageGrid as unknown as string | null) ??
