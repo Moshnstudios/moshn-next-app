@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 import { getProjectBySlug } from "~/lib/queries";
-
-// Route segment config
-export const runtime = "edge";
+import axios from "axios";
+import sharp from "sharp";
 
 // Image metadata
 export const alt = "";
@@ -13,7 +12,7 @@ export const size = {
   height: 630,
 };
 
-export const contentType = "image/png";
+export const contentType = "image/jpeg";
 
 export default async function Image({
   params,
@@ -21,6 +20,25 @@ export default async function Image({
   params: { project_id: string };
 }) {
   const project = await getProjectBySlug(params.project_id);
+
+  if (!project.projectFields.projectThumbnail?.node.mediaItemUrl) return null;
+
+  const response = await axios.get<BufferEncoding>(
+    project.projectFields.projectThumbnail?.node.mediaItemUrl,
+    { responseType: "arraybuffer" },
+  );
+  const imageBuffer = Buffer.from(response.data, "binary");
+
+  const compressedImageBuffer = await sharp(imageBuffer)
+    .resize(1200, 630, {
+      fit: "cover",
+    })
+    .jpeg({ quality: 40 })
+    .toBuffer();
+
+  const base64Image = `data:image/jpeg;base64,${compressedImageBuffer.toString(
+    "base64",
+  )}`;
 
   return new ImageResponse(
     (
@@ -36,8 +54,8 @@ export default async function Image({
         }}
       >
         <img
-          src={project.projectFields.projectThumbnail?.node.mediaItemUrl}
-          alt=""
+          src={base64Image} // Use the compressed image here
+          alt={alt}
           style={{
             width: "100%",
             height: "100%",

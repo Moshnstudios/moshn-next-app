@@ -85,8 +85,6 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 
   const data = (await response.json()) as { data: { project: Project } };
 
-  console.log(data);
-
   const imageGrid = extractImageUrls(
     (data.data.project.projectFields?.imageGrid as unknown as string | null) ??
       "",
