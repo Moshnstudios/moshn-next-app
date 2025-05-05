@@ -16,7 +16,6 @@ export default function OurService() {
       <div className="flex flex-col justify-center lg:w-[50%] lg:pl-24">
         <Title
           text="Our Service"
-          splitBy="words"
           className="gap-6 text-5xl tracking-tighter lg:text-6xl"
         />
 

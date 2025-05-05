@@ -8,7 +8,6 @@ export default function AboutUs() {
       <div className="flex flex-col justify-center lg:w-[50%]">
         <Title
           text="About Us"
-          splitBy="words"
           className="gap-4 text-5xl tracking-tighter lg:gap-6 lg:text-6xl"
         />
 
@@ -31,7 +30,7 @@ export default function AboutUs() {
 
       <div className="relative h-[600px] w-full overflow-hidden rounded-[60px] lg:h-[calc(100vh-20px)] lg:w-[50%]">
         <Image
-          src={About}
+          src={About as never}
           alt=""
           fill
           className="object-cover object-right-top"

@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import SmoothScroll from "./_components/smooth-scroll";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
+import MetaPixel from "./_components/meta-pixel";
 
 const garet = fonts({
   src: [
@@ -41,8 +42,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}>
+    <html
+      lang="en"
+      className={`${garet.variable} ${questrial.variable} bg-black font-sans tracking-tighter text-white antialiased`}
+    >
       <body>
+        <MetaPixel />
         <TRPCReactProvider>
           <Header />
 

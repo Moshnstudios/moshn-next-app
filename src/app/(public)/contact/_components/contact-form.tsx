@@ -33,11 +33,7 @@ export default function ContactForm() {
       <div className="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center">
         {!isSuccess ? (
           <>
-            <Title
-              text="Connect With Us"
-              splitBy="words"
-              className="mb-16 text-3xl"
-            />
+            <Title text="Connect With Us" className="mb-16 text-3xl" />
 
             <Form form={form} className="w-full">
               <FormTextInput

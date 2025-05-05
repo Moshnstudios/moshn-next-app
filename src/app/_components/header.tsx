@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { PlusIcon, X } from "lucide-react";
+import { ChevronRight, PlusIcon, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import GrayLogoText from "~/assets/brand/logo-text-gray.png";
@@ -82,7 +82,11 @@ export default function Header() {
       <div className="flex w-full items-center justify-between pl-6 pr-4">
         <Link href="/">
           <div className="flex w-[30.38vw] items-center gap-4 md:w-[clamp(45px,10.57vw,160px)]">
-            <Image src={GrayLogoText} alt="" className="h-full w-full" />
+            <Image
+              src={GrayLogoText as never}
+              alt=""
+              className="h-full w-full"
+            />
           </div>
         </Link>
 
@@ -145,31 +149,39 @@ export default function Header() {
                 <ul className="flex flex-col text-[6.2vw] md:text-[2vw] [&>a]:py-[1vw] md:[&>a]:py-[.4vw]">
                   <Link href="/">
                     <li>
-                      <Title splitBy="characters" text="Home" />
+                      <Title text="Home" />
                     </li>
                   </Link>
 
                   <Link href="/projects">
                     <li>
-                      <Title splitBy="characters" text="Projects" />
+                      <Title text="Projects" />
                     </li>
                   </Link>
 
                   <Link href="/career">
                     <li>
-                      <Title splitBy="characters" text="Career" />
+                      <Title text="Career" />
                     </li>
                   </Link>
 
                   <Link href="/contact">
                     <li>
-                      <Title splitBy="characters" text="Contact" />
+                      <Title text="Contact" />
                     </li>
                   </Link>
                 </ul>
               </nav>
 
-              <Socials />
+              <div className="flex w-full items-center justify-between gap-4">
+                <Socials />
+                <Link
+                  href="/privacy-policy"
+                  className="flex items-center gap-1 text-sm hover:underline"
+                >
+                  Privacy Policy
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

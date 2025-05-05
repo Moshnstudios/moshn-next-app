@@ -15,7 +15,7 @@ export default async function ProjectsPage() {
   return (
     <div className="min-h-screen bg-black pt-40">
       <div className="flex items-center justify-center">
-        <Title text="Projects" splitBy="characters" className="text-6xl" />
+        <Title text="Projects" className="text-6xl" />
       </div>
 
       <div className="mt-20 grid gap-4 p-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

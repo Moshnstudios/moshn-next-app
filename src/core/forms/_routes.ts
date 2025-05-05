@@ -38,6 +38,7 @@ export const formsRoutes = createTRPCRouter({
         throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
       });
 
+    console.log(result.data);
     if (result.data.status === "validation_failed") {
       throw new TRPCError({
         code: "BAD_REQUEST",

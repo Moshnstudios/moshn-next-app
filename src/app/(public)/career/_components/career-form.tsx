@@ -33,11 +33,7 @@ export default function CareerForm() {
         {!isSuccess ? (
           <>
             <div className="mb-16 flex max-w-xl flex-col items-center justify-center text-center">
-              <Title
-                text="Join Our Team"
-                splitBy="words"
-                className="text-3xl"
-              />
+              <Title text="Join Our Team" className="text-3xl" />
               <p>
                 We’re always looking for talented individuals to join us. If
                 you’re passionate about CGI, storytelling, and creating stunning
